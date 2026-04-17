@@ -1,0 +1,7 @@
+.vscode
+.cache
+build
+docs
+*.ll
+*.s
+*.inc
