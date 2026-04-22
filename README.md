@@ -64,3 +64,12 @@ cmake --build build --target docs
 The documents will be created in the `docs` directory.  
 You can read the document by opening `docs/html/index.html` with the
 web browser.
+
+## Important reminder
+The compiler code other than `src/lib/opt.cpp` and files in `src/lib/opt` are
+only to be modified by TAs, and should not be modified by students
+participating in the project. **They are out of your project scope**.
+
+At the end of the project, TAs will compare the content with the original
+skeleton code. If we find out that you modified the backend, **we will place
+severe penalty**!

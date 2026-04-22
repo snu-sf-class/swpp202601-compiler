@@ -193,18 +193,14 @@ private:
     else
       translateBinaryOp(SWPP::EADD, U);
   }
-  void translateOAdd(const User &U) {
-      translateBinaryOp(SWPP::OADD, U);
-  }
+  void translateOAdd(const User &U) { translateBinaryOp(SWPP::OADD, U); }
   void translateSub(const User &U) {
     if (isVector(U))
       translateBinaryOp(SWPP::VSUB, U);
     else
       translateBinaryOp(SWPP::ESUB, U);
   }
-  void translateOSub(const User &U) {
-      translateBinaryOp(SWPP::OSUB, U);
-  }
+  void translateOSub(const User &U) { translateBinaryOp(SWPP::OSUB, U); }
 
   // (Elementwise) Integer Increment / Decrement
   void translateIncr(const User &U) {

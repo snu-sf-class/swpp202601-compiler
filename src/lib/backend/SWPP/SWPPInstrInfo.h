@@ -181,7 +181,8 @@ const SWPPInstrTable SWPPDescs = [] {
   setDesc({SWPP::MALLOC, 2, 1, 0, 0, 0, 0, 0, 1, 0, 0});
   setDesc({SWPP::FREE, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0});
   setDesc({SWPP::LOAD, 3, 1, 0, 0, 0, 0, 0, 3, 0 | (1ULL << MCID::MayLoad), 0});
-  setDesc({SWPP::ALOAD, 3, 1, 0, 0, 0, 0, 0, 3, 0 | (1ULL << MCID::MayLoad), 0});
+  setDesc(
+      {SWPP::ALOAD, 3, 1, 0, 0, 0, 0, 0, 3, 0 | (1ULL << MCID::MayLoad), 0});
   setDesc(
       {SWPP::STORE, 3, 0, 0, 0, 0, 0, 0, 6, 0 | (1ULL << MCID::MayStore), 0});
   setDesc(
