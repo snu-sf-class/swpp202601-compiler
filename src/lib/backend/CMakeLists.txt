@@ -5,6 +5,7 @@ function(add_backend_pass pass_name file_name)
     target_include_directories(${pass_name} PRIVATE ${LLVM_INCLUDE_DIRS})
 endfunction()
 
+add_backend_pass(SCBackendCallocElimPass calloc_eliminate.cpp)
 add_backend_pass(SCBackendConstExprElimPass const_expr_eliminate.cpp)
 add_backend_pass(SCBackendGEPElimPass gep_eliminate.cpp)
 add_backend_pass(SCBackendGVElimPass gv_eliminate.cpp)

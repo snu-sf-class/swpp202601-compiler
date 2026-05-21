@@ -13,7 +13,7 @@ target_link_libraries(SCOpt PRIVATE SCPrintIR OptPasses ${opt_llvm_libs})
 add_library(SCBackend backend.cpp)
 target_include_directories(SCBackend PRIVATE ${LLVM_INCLUDE_DIRS})
 llvm_map_components_to_libnames(backend_llvm_libs Analysis CodeGen CodeGenTypes Core MC Passes Support Target TargetParser GlobalISel SelectionDAG ScalarOpts)
-target_link_libraries(SCBackend PRIVATE SCPrintIR SCBackendConstExprElimPass
+target_link_libraries(SCBackend PRIVATE SCPrintIR SCBackendCallocElimPass SCBackendConstExprElimPass
   SCBackendGEPElimPass SCBackendGVElimPass SCBackendSextEliminatePass SCBackendTruncAdjustPass
   SCBackendMIRTranslatorPass SCBackendMIRPrinterPass SCBackendConstCopyEliminatePass
   SWPPFrameLowering SWPPTargetLowering SWPPRegisterInfo SWPPInstrInfo SWPPTargetInfo SWPPMCTargetDesc SWPPSubtarget SWPPTargetMachine 

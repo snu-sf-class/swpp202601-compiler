@@ -2,6 +2,7 @@
 #include "backend/SWPP/SWPPMCTargetDesc.h"
 #include "backend/SWPP/SWPPTargetInfo.h"
 #include "backend/SWPP/SWPPTargetMachine.h"
+#include "backend/calloc_eliminate.h"
 #include "backend/const_copy_eliminate.h"
 #include "backend/const_expr_eliminate.h"
 #include "backend/gep_eliminate.h"
@@ -99,6 +100,7 @@ Backend::Backend(std::unique_ptr<Module> &&M, ModuleAnalysisManager &MAM,
 
 void Backend::runIRPasses() {
   ModulePassManager MPM;
+  MPM.addPass(calloc_elim::CallocEliminatePass());
   MPM.addPass(ce_elim::ConstExprEliminatePass());
   MPM.addPass(gep_elim::GEPEliminatePass());
   MPM.addPass(gv_elim::GVEliminatePass());

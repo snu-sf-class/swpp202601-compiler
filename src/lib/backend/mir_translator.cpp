@@ -149,7 +149,7 @@ MIRTranslatorImpl::getOrCreateVRegOrImm(const Value &V) {
     }
     // Check if the value is a null pointer
     if (isa<ConstantPointerNull>(&V))
-      return 153600;
+      return 0;
     // BlockAddress, ConstantAggregate, ConstantExpr, GlobalValue, ConstantFP
     // ...
     report_fatal_error("Not supported Constant Value");
