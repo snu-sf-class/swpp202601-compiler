@@ -355,7 +355,8 @@ void MIRTranslatorImpl::translateAlloca(const User &U) {
       ElementSize * cast<ConstantInt>(AI.getArraySize())->getZExtValue();
 
   // Create stack object in MachineFrameInfo
-  int idx = MF->getFrameInfo().CreateStackObject(Size, Align(1), false, &AI);
+  int idx =
+      MF->getFrameInfo().CreateStackObject(Size, AI.getAlign(), false, &AI);
   MachineInstrBuilder MIB = CurBuilder->buildInstr(SWPP::CONST);
   MIB.addDef(Ptr);
   MIB.addFrameIndex(idx);
