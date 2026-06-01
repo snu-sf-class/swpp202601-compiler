@@ -43,6 +43,6 @@ def Gen : RegisterClass<"SWPP", [i64], 8, (add
   (sequence "r%u", 1, 32)
 )>;
 
-def Vec : RegisterClass<"SWPP", [v8i32, v4i64], 64, (add
+def Vec : RegisterClass<"SWPP", [v8i32, v4i64], 8, (add
   (sequence "v%u", 1, 16)
 )>;

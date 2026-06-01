@@ -14,7 +14,8 @@ class SWPPFrameLowering : public TargetFrameLowering {
 public:
   // Stack growth downwards, No Aligment rules on stack, Local Area offset is 0
   SWPPFrameLowering()
-      : TargetFrameLowering(TargetFrameLowering::StackGrowsDown, Align(1), 0) {}
+      : TargetFrameLowering(TargetFrameLowering::StackGrowsDown, Align(8), 0,
+                            Align(8)) {}
   void emitPrologue(MachineFunction &MF, MachineBasicBlock &MBB) const override;
   void emitEpilogue(MachineFunction &MF, MachineBasicBlock &MBB) const override;
   bool hasFPImpl(const MachineFunction &MF) const override;
