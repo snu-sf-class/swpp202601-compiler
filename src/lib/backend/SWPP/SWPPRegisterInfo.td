@@ -38,11 +38,11 @@ def sp : SWPPReg<"sp">;
 // General Register Class (arg1 ~ arg16, r1 ~ r32)
 // We freeze arg1 ~ arg16, therefore we ignore these register in allocation
 // It can help coalescing argument registers
-def Gen : RegisterClass<"SWPP", [i64], 8, (add
+def Gen : RegisterClass<"SWPP", [i64], 64, (add
   (sequence "arg%u", 1, 16), 
   (sequence "r%u", 1, 32)
 )>;
 
-def Vec : RegisterClass<"SWPP", [v8i32, v4i64], 8, (add
+def Vec : RegisterClass<"SWPP", [v8i32, v4i64], 64, (add
   (sequence "v%u", 1, 16)
 )>;
