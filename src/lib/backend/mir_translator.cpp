@@ -134,7 +134,7 @@ MIRTranslatorImpl::getOrCreateVRegOrImm(const Value &V) {
           return 0;
         return 1;
       }
-      return CI->getValue().getSExtValue();
+      return static_cast<int64_t>(CI->getValue().getZExtValue());
     }
     // Check if the value is a undef or poison
     if (isa<UndefValue>(&V)) {
@@ -217,7 +217,7 @@ void MIRTranslatorImpl::translateSwitch(const User &U) {
     const ConstantInt *CaseValue = Case.getCaseValue();
     const BasicBlock *CaseSucc = Case.getCaseSuccessor();
     MachineBasicBlock *SuccMBB = &getMBB(*CaseSucc);
-    MIB.addImm(CaseValue->getSExtValue());
+    MIB.addImm(static_cast<int64_t>(CaseValue->getZExtValue()));
     MIB.addMBB(SuccMBB);
     CurMBB.addSuccessor(SuccMBB);
   }
